@@ -1,35 +1,130 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html lang="en">
+
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600;1,700&display=swap" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-RLs6bFYr9vlrPJh6jIbbzVJ7ftJdYwoawA4j2ph0zhXHwweBpHtqU4BeeA1kMvHN" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <title>My Profile</title>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <script type="text/JavaScript">var contextpath ="<%=request.getContextPath()%>"</script>
+
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="indexcss.css">
 </head>
-<body ng-controller="myCtrl">
 
-  <form>
-    <label for="inputA">Enter value for a (1-100):</label>
-    <input type="number" id="inputA" ng-model="a" min="1" max="100" required>
+<body ng-app="myApp" ng-controller="myController">
+  <header>
+    <nav>
+      <div class="left">Shiva Ganesh's Profile</div>
+      <div class="right">
+        <ul>
+          <li><button id="aboutFun" class="btn" ng-click="aboutFun()"> About </button></li>
+          <li><button id="showButton" class="btn" ng-click="projectsFun()"> Projects </button></li>
+          <li><button id="showButton" class="btn" ng-click="servicesFun()"> Services </button></li>
+          <li><button id="showButton" class="btn" ng-click="contactFun()"> Contact </button></li>
+          <li><button id="showButton" class="btn" ng-click="homeFun()"> Home </button></li>
+        </ul>
+      </div>
+    </nav>
 
+<<<<<<< Updated upstream
     <!-- <label for="inputB">Enter value for b:</label> -->
     <input type="number" id="inputB" ng-model="b" required>
+=======
+  </header>
+  <main>
+    <section>
+      <div ng-show="aboutShow">
+        <div class="firstSection">
+          <div class="leftSection">
+            <div>Hi , My name is
+              <div><span class="name">Shiva Ganesh</span></div>
+            </div>
+            <div>and I am a</div>
+            <span class="name" id="element"></span>
+          </div>
+          <div class="rightSection">
+            <img src="dev.png" alt="">
+          </div>
+        </div>
+>>>>>>> Stashed changes
 
-    <button type="submit" ng-click="calculate()">Calculate</button>
-  </form>
+        <div class="secondSection">
+        </div>
 
-  <div ng-if="result !== null">
-    <p ng-if="result <= 100">Result: {{ result }}</p>
-    <p ng-if="result > 100">Result exceeds 100.</p>
-  </div>
+      </div>
+    </section>
+
+    <div class="about" ng-show="homeShow">
+      <div class="container">
+        <div class="leftAbout">
+          <h1><span class="name1">Shiva Ganesh</span></h1>
+          <div><span class="name2">Full Stack Developer</span></div>
+          <p>
+            Experienced full stack developer with 2.6 years of expertise in Java, JavaScript, Node.js, Angular JS,
+            Spring Frameworks MVC and Spring Boot, Rest API, HTML, CSS, and
+            databases like My SQL and PostgreSQL. Strong collaborator in Agile environments, delivering high-quality
+            solutions. Passionate problem-solver staying up-to-date with industry trends.</p>
+        </div>
+        <div class="middleAbout">
+          <img class="profile-image" src="myprofile.jpg" alt="Profile Picture">
+        </div>
+        <div class="rightAbout">
+          <H1>Experience</H1>
+          <p>2 + years</p>
+          <H1>Projects</H1>
+          <p>6+</p>
+          <div class="cvbt" style="justify-content: space-around; align-items: center;">
+            <button class="cvbtn" ng-click="downloadCv()">Download CV</button>
+            <button class="cvbtn" ng-click="gitHub()">Git Hub</button>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+
 
   <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-      $scope.result = null;
-
-      $scope.calculate = function() {
-        $scope.result = ($scope.a + $scope.b) / $scope.c * 100;
-      };
+    var typed = new Typed('#element', {
+      strings: ['Web Developer', 'Full Stack Developer'],
+      typeSpeed: 80,
     });
   </script>
+  <footer>
+    <div clas="footer">
 
+      <div>
+        <h2><span class="name1">About</span></h1>
+
+      </div>
+
+      <div>
+        <h2><span class="name1">Projects</span></h1>
+      </div>
+      <div>
+        <h2><span class="name1">Services</span></h1>
+      </div>
+      <div>
+        <h2><span class="name1">Contact</span></h1>
+      </div>
+
+    </div>
+  </footer>
 </body>
+
 </html>
